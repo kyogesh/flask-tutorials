@@ -1,0 +1,3 @@
+"""
+Separating routes and views
+"""
