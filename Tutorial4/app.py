@@ -1,36 +1,46 @@
-import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-from .routes import init_routes
-from .models import User, Address
-
-
-app = Flask(__name__)
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'sample.db')
-
-db = SQLAlchemy(app)
-
-init_routes(app)
-
-@app.cli.command('db_drop')
-def db_drop():
-    with app.app_context():
-        db.drop_all()
-    print('DB Created!')
-
-
-@app.cli.command('db_create')
-def db_create():
-    db.create_all()
-    print('DB Dropped')
-
-
-@app.cli.command('insert_data')
-def insert_data():
-    user1 = User(first_name='Some', last_name='One', email='someone@email.com', password='strongpass')
-    user2 = User(first_name='Other', last_name='One', email='otherone@email.com', password='betterpass')
-
-    db.session.add(user1)
-    db.session.add(user2)
+# import os
+#
+# from flask import Flask
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+# from sqlalchemy_utils import PasswordType
+#
+# from Tutorial4.web.routes import init_routes
+# from Tutorial4.web.models import User
+#
+#
+# app = Flask(__name__)
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,
+#                                                                     'sample.db')
+# db = SQLAlchemy(app)
+#
+# init_routes(app)
+#
+#
+#
+#
+# class User(db.Model):
+#     __tablename__ = 'users'
+#     id = Column(Integer, primary_key=True)
+#     first_name = Column(String)
+#     last_name = Column(String)
+#     email = Column(String, unique=True)
+#     password = Column(PasswordType(
+#         schemes=[
+#             'pbkdf2_sha512',
+#             'md5_crypt'
+#         ],
+#         deprecated=['md5_crypt']))
+#
+#
+# class Address(db.Model):
+#     __tablename__ = 'addresses'
+#     user = ForeignKey('users', cascade='delete')
+#     house_num = Column(Integer, primary_key=True)
+#     street = Column(String)
+#     locality = Column(String)
+#     city = Column(String)
+#     state = Column(String)
+#     pincode = Column(Integer)
+#     present = Column(Boolean)

@@ -1,17 +1,15 @@
-from flask import current_app as app
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy_utils import PasswordType
 
-db = SQLAlchemy(app)
+from ..database import db
 
 
 class User(db.Model):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    first_name = Column(String)
-    last_name = Column(String)
-    email = Column(String, unique=True)
+    first_name = Column(String(length=100, convert_unicode=True))
+    last_name = Column(String(length=100, convert_unicode=True))
+    email = Column(String(length=255, convert_unicode=True), unique=True)
     password = Column(PasswordType(
         schemes=[
             'pbkdf2_sha512',
@@ -24,9 +22,9 @@ class Address(db.Model):
     __tablename__ = 'addresses'
     user = ForeignKey('users', cascade='delete')
     house_num = Column(Integer, primary_key=True)
-    street = Column(String)
-    locality = Column(String)
-    city = Column(String)
-    state = Column(String)
+    street = Column(String(length=100, convert_unicode=True))
+    locality = Column(String(length=100, convert_unicode=True))
+    city = Column(String(length=100, convert_unicode=True))
+    state = Column(String(length=100, convert_unicode=True))
     pincode = Column(Integer)
     present = Column(Boolean)
