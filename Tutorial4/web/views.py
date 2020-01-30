@@ -2,7 +2,7 @@ from flask import jsonify
 
 from Tutorial4.database import db
 from .models import User
-
+from .serializer import user, users, address, addresses
 
 def home():
     return '<h1> Hello World!</h1>'
@@ -13,6 +13,7 @@ def greet(name):
 
 
 def get_users():
-    users = db.session.query(User)
+    users_list = User.query.all()
+    serializer = users.dump(users_list)
     return jsonify({'messages': 'There should be a list of users here!',
-                    'users': [users]})
+                    'users': serializer})

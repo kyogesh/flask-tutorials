@@ -20,8 +20,9 @@ class User(db.Model):
 
 class Address(db.Model):
     __tablename__ = 'addresses'
+    id = Column(Integer, primary_key=True)
     user = ForeignKey('users', cascade='delete')
-    house_num = Column(Integer, primary_key=True)
+    house_num = Column(Integer)
     street = Column(String(length=100, convert_unicode=True))
     locality = Column(String(length=100, convert_unicode=True))
     city = Column(String(length=100, convert_unicode=True))
