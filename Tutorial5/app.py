@@ -30,6 +30,7 @@ def get_users():
     return jsonify({'messages': 'There should be a list of users here!',
                     'users': serializer})
 
+
 web_routes = Blueprint('web', __name__)
 
 web_routes.add_url_rule('/', 'home', home)
