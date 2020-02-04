@@ -1,6 +1,6 @@
 from flask import jsonify
 
-from Tutorial4.database import db
+from ..database import db
 from .models import User
 from .serializer import user, users, address, addresses
 
@@ -17,3 +17,8 @@ def get_users():
     serializer = users.dump(users_list)
     return jsonify({'messages': 'There should be a list of users here!',
                     'users': serializer})
+
+def get_user(id):
+    user_ = User.query.filter_by(id=id).first_or_404()
+    serializer = user.dump(user_)
+    return jsonify({'user': serializer})
