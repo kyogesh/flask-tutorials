@@ -1,3 +1,3 @@
 """
-Interacting with database using SQLAlchemy
+Use class based views
 """
