@@ -1,0 +1,5 @@
+<ul>
+    {% for user in users %}
+        <li><a href="{{ url_for('web.user_detail', id=user.id) }}"> {{ user.first_name }} {{ user.last_name }} </a> </li>
+    {% endfor %}
+</ul>
