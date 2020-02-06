@@ -3,3 +3,5 @@
         <li><a href="{{ url_for('web.user_detail', id=user.id) }}"> {{ user.first_name }} {{ user.last_name }} </a> </li>
     {% endfor %}
 </ul>
+
+<a href="{{ url_for('web.user_create') }}"> Add User</a>

@@ -1,0 +1,8 @@
+<form method="POST" enctype="multipart/form-data">
+    <p>{{ form.csrf_token }}</p>
+    <p>{{ form.first_name.label }} {{ form.first_name(size=100) }}</p>
+    <p>{{ form.last_name.label }} {{ form.last_name(size=100) }}</p>
+    <p>{{ form.email.label }} {{ form.email(size=100) }}</p>
+    <p>{{ form.password.label }} {{ form.password(size=32) }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
