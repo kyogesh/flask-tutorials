@@ -1,19 +1,8 @@
 from flask import Flask, request, jsonify, Blueprint, url_for
 
+from .middleware import init_middlewares
 
 app = Flask(__name__)
-
-
-def before():
-    print('Run Before Request')
-    if 'Authorization' not in request.headers:
-        return jsonify({'message': "Unauthorized Access"}), 401
-
-
-def after(req):
-    print('Run after request')
-    return req
-
 
 bp = Blueprint('web', __name__)
 bp2 = Blueprint('greet', __name__)
@@ -37,5 +26,4 @@ bp2.add_url_rule('/greet/<string:name>', 'greet_user', greet)
 
 app.register_blueprint(bp)
 app.register_blueprint(bp2)
-app.before_request_funcs = {'web': [before, ]}
-app.after_request(after)
+init_middlewares(app)
