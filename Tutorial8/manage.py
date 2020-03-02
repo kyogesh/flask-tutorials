@@ -1,15 +1,15 @@
 from flask import Flask
 
+from database import db
+from web.routes import web_routes
+
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('settings.py')
 
-    from . import database
-    database.db.init_app(app)
-    db = database.db
+    db.init_app(app)
 
-    from .web.routes import web_routes
     app.register_blueprint(web_routes)
 
     @app.cli.command('db_drop')

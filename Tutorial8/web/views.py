@@ -4,7 +4,7 @@ from flask.views import MethodView
 from .forms import UserForm
 from .models import User
 from .serializer import user, users
-from ..database import db
+from database import db
 
 
 class Greet(MethodView):
