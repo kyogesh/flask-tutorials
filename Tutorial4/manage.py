@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_migrate import Migrate
 
 
 def create_app():
@@ -8,6 +9,8 @@ def create_app():
     from . import database
     database.db.init_app(app)
     db = database.db
+
+    migrate = Migrate(app, db)
 
     from .web.routes import web_routes
     app.register_blueprint(web_routes)

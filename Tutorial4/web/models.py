@@ -28,4 +28,4 @@ class Address(db.Model):
     city = Column(String(length=100, convert_unicode=True))
     state = Column(String(length=100, convert_unicode=True))
     pincode = Column(Integer)
-    present = Column(Boolean)
+    present = Column(Boolean, default=True)
