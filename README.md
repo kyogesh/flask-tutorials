@@ -10,12 +10,11 @@ This project is aimed at django developers who wants to learn REST API developme
 
 [Tutorial 3](Tutorial3/README.md) - Separating routes/urls and views
 
-[Tutorial 4](Tutorial4/README.md)
+[Tutorial 4](Tutorial4/README.md) - Interacting with Database using SQLAlchemy
 
-[Tutorial 5](Tutorial5/README.md)
+[Tutorial 5](Tutorial5/README.md) - Adding Middleware
 
-[Tutorial 6](Tutorial6/README.md)
+[Tutorial 6](Tutorial6/README.md) - Introduction to Class based views
 
-[Tutorial 7](Tutorial7/README.md)
-
-[Tutorial 8](Tutorial8/README.md)
+[Tutorial 7](Tutorial7/README.md) - Interacting with Jinja templates and Running application using gunicorn 
+s

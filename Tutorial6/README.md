@@ -1,2 +1,2 @@
 # Tutorial 6
-## Middlewares in Flask
+## Using class based views

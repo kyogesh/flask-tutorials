@@ -1,3 +1,3 @@
 """
-Use class based views
+Interacting Jinja2 templates
 """
