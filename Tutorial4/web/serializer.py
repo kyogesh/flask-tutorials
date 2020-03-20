@@ -7,7 +7,6 @@ class UserSchema(ma.Schema):
     class Meta:
         fields = ('id', 'first_name', 'last_name', 'email', 'password')
         load_only = ('password', )
-        
 
 
 class AddressSchema(ma.Schema):

@@ -33,7 +33,6 @@ class UserDetailView(MethodView):
         return jsonify({'user': serializer})
 
     def post(self):
-        # import ipdb;ipdb.set_trace()
         user_obj = user.load(request.json)
         db.session.add(user_obj)
         db.session.commit()

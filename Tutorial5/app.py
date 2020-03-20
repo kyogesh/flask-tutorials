@@ -11,7 +11,7 @@ bp2 = Blueprint('greet', __name__)
 def index():
     print('Inside Request')
     # headers = list([header for header in request.headers])
-    return f"{request.query_string} ======== {request}"
+    return f"{request.query_string=}"
 
 
 def greet(name=None):

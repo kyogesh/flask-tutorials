@@ -16,7 +16,6 @@ class UserSchema(ma.Schema):
         return User(**data)
         
 
-
 class AddressSchema(ma.Schema):
     class Meta:
         fields = ('id', 'user', 'house_num', 'street', 'locality', 'city',

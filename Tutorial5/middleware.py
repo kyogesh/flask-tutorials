@@ -13,5 +13,5 @@ def after(req):
 
 
 def init_middlewares(app):
-    app.before_request_funcs = {'web': [before, ]}
+    app.before_request_funcs = {'greet': [before, ]}
     app.after_request(after)
